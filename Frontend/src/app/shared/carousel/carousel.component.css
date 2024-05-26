@@ -1,0 +1,18 @@
+.carousel-item img {
+    max-height: 500px;
+    max-width: 85%;
+    margin: auto;
+    border-radius: 3%;
+    
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 5%;
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    filter: invert(100%);
+  }
+  
