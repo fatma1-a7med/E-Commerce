@@ -16,9 +16,9 @@ use App\Http\Controllers\PromotionController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+/* Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
-});
+}); */
 
 Route::get('products/search/{name}', [ProductController::class, 'search']);
 Route::get('products-with-promotions', [PromotionController::class, 'index']);

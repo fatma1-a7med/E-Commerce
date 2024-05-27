@@ -29,9 +29,9 @@ export class ProfileComponent {
     gender: 'Female'
   };
   orders = [
-    { id: 1, status: 'Accepted' },
-    { id: 2, status: 'Rejected' },
-    { id: 3, status: 'Pending' }
+    { id: 1, status: 'Accepted',totalPrice:300 },
+    { id: 2, status: 'Rejected',totalPrice:1000  },
+    { id: 3, status: 'Pending' ,totalPrice:600 }
   ];
 
   saveProfile() {

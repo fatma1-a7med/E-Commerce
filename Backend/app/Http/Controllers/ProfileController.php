@@ -12,7 +12,8 @@ class ProfileController extends Controller
         $user = Auth::user();
         if ($user) {
             return response()->json($user);
-        } else {
+        }
+         else {
             return response()->json(['error' => 'Unauthenticated'], 401);
         }
     }

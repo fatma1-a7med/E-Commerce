@@ -18,9 +18,17 @@
     background-color: #F1A7A6;
     color: #dbe0e3;
 }
-.order_count{
-    margin-top: 90px;
+.order_count p:nth-of-type(1){
+    margin-top: 70px;
 }
+.order_count p:nth-of-type(2){
+    margin-top: -20px;
+    font-weight: bold;
+}
+.info{
+    margin: 20rem;
+}
+
 .edit_form{
     width: 450px;
     margin: auto;
@@ -32,5 +40,10 @@
 }
 .my_Orders .order_item {
     width: 70vw;
+    margin: auto;
+}
+.orders_table{
+    background-color: transparent !important;
+    width: 60vw;
     margin: auto;
 }
