@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
@@ -22,4 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('products/search/{name}', [ProductController::class, 'search']);
 Route::get('products-with-promotions', [PromotionController::class, 'index']);
 Route::apiResource('products', ProductController::class);
+Route::get('/profile', [ProfileController::class, 'index']);
+Route::put('/profile', [ProfileController::class, 'update']);
 
