@@ -1,13 +1,13 @@
-<div class="container bg-info profile">
+<div class="container profile">
     <img src="../../../assets/images/profile1.png" width="250" height="250">
-     <div class="buttons d-flex justify-content-between">
-        <button class="btn btn-outline-success" (click)="toggleEditMode()">Edit Profile</button>
-        <button class="btn btn-outline-success" (click)="toggleOrderMode()">View Orders</button>
+     <div class="buttons d-flex justify-content-between mx-5">
+        <button class="btn edit_btn" (click)="toggleEditMode()">Edit Profile</button>
+        <button class="btn order_btn" (click)="toggleOrderMode()">View Orders</button>
      </div>
 
     <div *ngIf="!isEditMode && !isOrderMode" class="order_count text-center">
-        <p class="mt-5">{{ orders.length }}</p>
-        <p>Orders</p>
+        <p >{{ orders.length }}</p>
+        <p class="mb-4">Orders</p>
     </div>
 
    <div *ngIf="!isEditMode && !isOrderMode" class="info m-auto text-center my-5">

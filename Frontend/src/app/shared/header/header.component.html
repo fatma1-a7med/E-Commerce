@@ -1,10 +1,24 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand"  routerLink="/">EShop</a>
+<div class="navbar_first text-center d-flex justify-content-around mt-3">
+
+ 
+ 
+ 
+  <!-- <form class="d-flex" style="height: 45px;">
+    <input class="form-control" type="search" placeholder="Search" aria-label="Search" style="width: 200px;">
+    <button class="btn ml-2" type="submit">Search</button>
+    
+  </form> -->
+
+</div>
+<nav class="navbar navbar-expand-lg container d-flex justify-content-between">
+
+  <div class="container-fluid ">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      <div class="left_header">
+
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
@@ -18,14 +32,26 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/contact">Contact</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/profile">Profile</a>
-        </li>
+  
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+    </div>
+
+      <div class="brand">
+        <img src="../../../assets/images/logo6.svg" width="40" height="40"> 
+        <h2><a class="navbar-brand"  routerLink="/">EShop</a></h2>
+      </div>
+      <div class="right_header d-flex">
+    
+          
+            <button class="btn sign_up">Sign up</button>
+            <button class="btn log_in">Log in</button>
+             
+         
+       
+        <i class="bi bi-search"></i>
+        <i class="bi bi-cart"></i>
+        <i class="bi bi-person-circle" routerLink="/profile"></i>
+       </div>
     </div>
   </div>
 </nav>
