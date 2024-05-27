@@ -1,22 +1,23 @@
+
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from '../../services/products.service';
+import { ProductsWithPromtionService } from '../../services/products-with-promtion.service';
 import { CommonModule } from '@angular/common';
+
 @Component({
-  selector: 'app-allproducts',
+  selector: 'app-products-with-promtion',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './allproducts.component.html',
-  styleUrl: './allproducts.component.css'
+  templateUrl: './products-with-promtion.component.html',
+  styleUrl: './products-with-promtion.component.css'
 })
-export class AllproductsComponent implements OnInit {
-
+export class ProductsWithPromtionComponent {
   products: any[] = []
-  constructor( private productsService: ProductsService){}
+  constructor( private ProductsWithPromtionService: ProductsWithPromtionService){}
   ngOnInit():void{
       this.getProducts()
   }
   getProducts(): void {
-    this.productsService.getAllProducts().subscribe({
+    this.ProductsWithPromtionService.getAllProducts().subscribe({
       next: (data: any) => {
         this.products = data;
         console.log(this.products); 

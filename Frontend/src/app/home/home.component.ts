@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ProductsWithPromtionComponent } from '../products/components/products-with-promtion/products-with-promtion.component';
+
+
 import { CarouselComponent } from '../shared/carousel/carousel.component';
-import {AllproductsComponent} from '../products/components/allproducts/allproducts.component';
+
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CarouselComponent,AllproductsComponent],
+  imports: [CarouselComponent,ProductsWithPromtionComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
