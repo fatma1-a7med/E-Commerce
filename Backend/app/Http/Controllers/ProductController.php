@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Product;
@@ -30,19 +31,18 @@ class ProductController extends Controller
             'title' => $request->title,
             'details' => $request->details,
             'price' => $request->price,
-            
         ]);
 
         if ($request->hasFile('image')) {
             $originalFilename = $request->image->getClientOriginalName();
             $request->image->move(public_path('images'), $originalFilename);
             $product->image = $originalFilename;
-        } 
+        }
+
         $product->save();
 
         return response()->json($product, 201);
     }
 }
+
 ?>
-
-
