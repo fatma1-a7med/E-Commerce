@@ -1,0 +1,36 @@
+.profile{
+    margin-top: 140px;
+   
+    box-shadow: 3px 4px 8px #1c1d20;
+}
+.profile img{
+    margin-top: -120px;
+    margin-left: 430px;
+}
+.buttons{
+    margin-top: -100px;
+}
+.edit_btn{
+    background-color: #1c1d20;
+    color: #dbe0e3 ;
+}
+.order_btn{
+    background-color: #F1A7A6;
+    color: #dbe0e3;
+}
+.order_count{
+    margin-top: 90px;
+}
+.edit_form{
+    width: 450px;
+    margin: auto;
+}
+
+.my_Orders{
+    margin-top: 100px;
+
+}
+.my_Orders .order_item {
+    width: 70vw;
+    margin: auto;
+}
