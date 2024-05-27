@@ -81,14 +81,6 @@ class ProductController extends Controller
         Storage::delete('images/products/' . $product->image);
     }
        return response()->json(['message' => 'Product deleted successfully'], 200);
-            $originalFilename = $request->image->getClientOriginalName();
-            $request->image->move(public_path('images'), $originalFilename);
-            $product->image = $originalFilename;
-        }
-
-        $product->save();
-
-        return response()->json($product, 201);
     }
 
 
