@@ -7,19 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     protected $fillable = [
-        'user_id',
+        'date',
         'total_price',
-        'status',
+        'state',
+        'user_id',
+        'product_id',
+        'created_at',
+        'updated_at'
     ];
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function items()
+    public function product()
     {
-        return $this->hasMany(OrderItem::class);
+        return $this->belongsTo(Product::class, 'product_id');
     }
 }
-

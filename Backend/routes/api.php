@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\CartItemController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +29,13 @@ Route::get('products-with-promotions', [PromotionController::class, 'index']);
 Route::apiResource('products', ProductController::class);
 Route::get('/profile', [ProfileController::class, 'index']);
 Route::put('/profile', [ProfileController::class, 'update']);
+
+
+
+Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+Route::put('/orders/{order}', [OrderController::class, 'update'])->name('orders.update');
+
 /////////////////////////////////
 
 
