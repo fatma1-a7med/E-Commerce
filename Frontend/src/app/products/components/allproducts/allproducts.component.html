@@ -1,17 +1,22 @@
-<div class="container mt-4">
-  <div class="row row-cols-1 row-cols-md-3 g-4">
+<!-- src/app/products/components/allproducts/allproducts.component.html -->
+<div class="container mt-3">
+  <div class="row mb-4">
+    <div class="col">
+      <input type="text" [(ngModel)]="searchQuery" placeholder="Search products" class="form-control" />
+    </div>
+    <div class="col">
+      <button (click)="searchProducts()" class="btn btn-primary">Search</button>
+    </div>
+  </div>
+  <div class="row">
     <div class="col" *ngFor="let product of products">
       <div class="card">
-      
-        <img style="height: 300px;" class="card-img-top" [src]="getImageUrl(product.image)" alt="{{ product.title }}" class="card-img-top product-image">
-          <div class="card-body">
-            <h5 class="card-title">{{ product.title }}</h5>
-            <p class="card-text">{{ product.details }}</p>
-            <p class="card-text"><small class="text-muted">{{ product.price | currency }}</small></p>
-          </div>
-        
-        <div class="card-footer bg-white">
-          <button class="btn btn-outline-primary">Add to Cart</button>
+        <img [src]="getImageUrl(product.image)" class="card-img-top" [alt]="product.title">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.title }}</h5>
+          <p class="card-text">{{ product.details }}</p>
+          <p class="card-text">{{ product.price | currency }}</p>
+          <button (click)="addToCart(product)" class="btn btn-success">Add to Cart</button>
         </div>
       </div>
     </div>
