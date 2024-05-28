@@ -11,17 +11,19 @@ use Illuminate\Http\Request;
 class OrderController extends Controller
 {
 // View all orders
-public function index()
-{
-    $user = User::all();
-    $orders = Order::with('User', 'Product')->get();
-    return response()->json($orders);
-}
+ // View all orders
+ public function index()
+ {
+     // Load orders with related user and order items including products
+     $orders = Order::with(['user', 'items.product'])->get();
+     return response()->json($orders);
+ }
+
 
 // View a specific order
 public function show(Order $order)
 {
-    $order->load('User', 'product');
+    $order->load('User', 'items.product');
     return response()->json($order);
 }
 

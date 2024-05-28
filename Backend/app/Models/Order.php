@@ -11,18 +11,19 @@ class Order extends Model
         'total_price',
         'state',
         'user_id',
-        'product_id',
         'created_at',
         'updated_at'
     ];
 
+
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function product()
+    public function items()
     {
-        return $this->belongsTo(Product::class, 'product_id');
+        return $this->hasMany(OrderItem::class, 'order_id');
     }
+
 }

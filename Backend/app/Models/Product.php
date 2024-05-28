@@ -15,4 +15,12 @@ class Product extends Model
     {
         return $this->hasMany(Promotion::class);
     }
+
+    public function orders(){
+        return $this->belongsToMany(Order::class, 'order_item');
+    }
+     
+    public function users(){
+        return $this->belongsToMany(User::class);
+    }
 }
