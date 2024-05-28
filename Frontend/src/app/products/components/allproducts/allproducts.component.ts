@@ -64,6 +64,6 @@ export class AllproductsComponent implements OnInit {
   }
 
   getImageUrl(imageName: string): string {
-    return `http://localhost:8000/images/${imageName}`;
+    return `http://localhost:8000/images/products/${imageName}`;
   }
 }

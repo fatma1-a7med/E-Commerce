@@ -24,7 +24,7 @@ export class CartsComponent implements OnInit {
   }
 
   getImageUrl(imageName: string): string {
-    return `http://localhost:8000/images/${imageName}`;
+    return `http://localhost:8000/images/products/${imageName}`;
   }
 
   showDetails(item: any): void {
