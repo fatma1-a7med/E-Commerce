@@ -1,68 +1,87 @@
 <div class="container profile">
     <img src="../../../assets/images/profile1.png" width="250" height="250">
-     <div class="buttons d-flex justify-content-between mx-5">
+    <div class="buttons d-flex justify-content-between mx-5">
         <button class="btn edit_btn" (click)="toggleEditMode()">Edit Profile</button>
         <button class="btn order_btn" (click)="toggleOrderMode()">View Orders</button>
-     </div>
+    </div>
 
     <div *ngIf="!isEditMode && !isOrderMode" class="order_count text-center">
-        <p >{{ orders.length }}</p>
+        <p>{{ orders.length }}</p>
         <p>Orders</p>
     </div>
 
-   <div *ngIf="!isEditMode && !isOrderMode" class="info mt-3 ">
-    <p><b>Username: </b><span>{{ profile.username }}</span></p>
-    <p><b>Email: </b><span>{{ profile.email }}</span></p>
-    <p><b>Gender: </b><span>{{ profile.gender }}</span></p><br>
-   </div> 
-
-   <div *ngIf="isEditMode && !isOrderMode" class="m-auto my-5 pt-3">
-    <form (ngSubmit)="saveProfile()" class="edit_form">
-    <h3 class="mt-2">Edit Profile</h3>
-
-        <div class="form-group">
-            <label for="username">Username:</label>
-            <input type="text" id="username" [(ngModel)]="profile.username" name="username" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" [(ngModel)]="profile.email" name="email" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="gender">Gender:</label>
-            <select id="gender" [(ngModel)]="profile.gender" name="gender" class="form-control">
-                <option value="Female">Female</option>
-                <option value="Male">Male</option>
-            </select>
-        </div>
-        <button type="submit" class="btn btn-outline-success mt-3">Save</button>
-    </form><br><br>
-   </div>
-   
-   <div *ngIf="isOrderMode" class="my_Orders">
-    <h4 class="text-center">My Orders</h4>
-    <div class="container">
-        <table class="orders_table table">
-            <thead >
-                <tr>
-                    <th>Order ID</th>
-                    <th>Status</th>
-                    <th>Total Price</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let order of orders">
-                    <td>{{ order.id }}</td>
-                    <td>{{ order.status }}</td>
-                    <td>{{ order.totalPrice }}</td>
-                    <td>
-                        <button *ngIf="order.status === 'Pending'" (click)="cancelOrder(order.id)" class="btn btn-danger">Cancel Order</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <div *ngIf="!isEditMode && !isOrderMode" class="info mt-3">
+        <p><b>Username: </b><span>{{ profile.username }}</span></p>
+        <p><b>Email: </b><span>{{ profile.email }}</span></p>
+        <p><b>Gender: </b><span>{{ profile.gender }}</span></p><br>
     </div>
-</div>
 
+    <div *ngIf="isEditMode && !isOrderMode" class="m-auto my-5 pt-3">
+        <form class="edit_form" (ngSubmit)="saveProfile()">
+            <h3 class="mt-2">Edit Profile</h3>
+
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" [(ngModel)]="profile.username" name="username" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" [(ngModel)]="profile.email" name="email" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" [(ngModel)]="profile.gender" name="gender" class="form-control">
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-outline-success mt-3">Save</button>
+        </form><br><br>
+    </div>
+
+    <div *ngIf="isOrderMode" class="my_Orders">
+        <h4 class="text-center">My Orders</h4>
+        <div class="container">
+            <table class="orders_table table">
+                <thead>
+                    <tr>
+                        
+                        <th>Order Date</th>
+                        <th>Order Status</th>
+                        <th>Total Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let order of orders">
+                    
+                        <td>{{ order.Date }} <i class="bi bi-plus-square" (click)="toggleOrderDetails(order)"></i></td>
+                        <td>{{ order.State }}</td>
+                        <td>{{ order.Total_price }}</td>
+                
+                        <td>
+                            <button *ngIf="order.State === 'Pending'" (click)="cancelOrder(order.id)" class="btn btn-danger">Cancel Order</button>
+                        </td>
+                       
+                    </tr>
+                    <tr *ngIf="selectedOrder === orderWithDetails && orderWithDetails">
+                        <td colspan="4">
+                            <div *ngFor="let item of orderWithDetails.items">
+                              <p> <img [src]="getImageUrl(item.product.image)" [alt]="item.product.title" width="90" height="90"> </p>
+    <div class="order_item_details">
+        <p>{{ item.product.title }}</p>
+        <p>Quantity: {{ item.product.quantity }}</p>
+        <p>Price: ${{ item.product.price }}</p>
+    </div>
+                             </div>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+                
+
+                <!-- -->
+            </table>
+        </div>
+    </div>
 </div>

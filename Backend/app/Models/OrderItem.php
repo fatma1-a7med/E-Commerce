@@ -13,7 +13,6 @@ class OrderItem extends Model
         'price',
     ];
 
-
     protected $table = 'order_items';
 
     public function order()
@@ -25,5 +24,4 @@ class OrderItem extends Model
     {
         return $this->belongsTo(Product::class);
     }
-
 }

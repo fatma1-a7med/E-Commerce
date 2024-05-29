@@ -29,6 +29,8 @@ Route::get('products-with-promotions', [PromotionController::class, 'index']);
 Route::apiResource('products', ProductController::class);
 Route::get('/profile', [ProfileController::class, 'index']);
 Route::put('/profile', [ProfileController::class, 'update']);
+Route::get('/profile/orders/{userId}', [ProfileController::class, 'userOrders']);
+Route::delete('/profile/orders/{orderId}', [ProfileController::class, 'destroy']);
 
 
 
