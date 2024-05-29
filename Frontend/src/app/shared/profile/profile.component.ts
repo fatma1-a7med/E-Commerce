@@ -47,7 +47,7 @@ export class ProfileComponent implements OnInit {
   saveProfile() {
     this.profileService.updateProfile(this.profile).subscribe(response => {
       console.log('Profile updated successfully', response);
-      this.isEditMode = false; // Set edit mode to false after successful update
+      this.isEditMode = false; 
     }, error => {
       console.error('Error updating profile', error);
     });

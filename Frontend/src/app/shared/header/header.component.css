@@ -11,6 +11,7 @@
   font-family: "Edu TAS Beginner", cursive;
   font-size: 28px;
   margin-left: -15px;
+  color:#072643 ;
 }
 .right_header{
   margin-left: 180px;
@@ -19,6 +20,7 @@
   font-size: 27px;
   margin-right: 15px;
   cursor: pointer;
+  color: #072643;
 }
 .right_header button{
   width: 100px;
@@ -26,7 +28,53 @@
 .log_in{
   margin-right: 14px;
   margin-left: 10px;
+  background-color: transparent;
+  border: 2px solid #072643;
+  color: #072643;
 }
+
+.log_in:hover{
+ 
+  background-color: #072643;
+
+  color: white;
+}
+.sign_up{
+  border: 2px solid #072643;
+}
+.sign_up:hover{
+ 
+  background-color: transparent;
+
+  color: #072643;
+}
+
 .brand{
   margin-left: 270px;
+}
+.nav-link {
+  color: #072643;
+  text-decoration: none;
+  padding-bottom: 2px; 
+  position: relative; 
+  transition: color 0.3s ease; 
+}
+
+.nav-link::after {
+  content: '';
+  display: block;
+  width: 30%; 
+  height: 2px; 
+  background-color: #F1A7A6;
+  position: absolute;
+  bottom: 0;
+
+  transform: scaleX(1);
+  transition: width 0.3s ease, background-color 0.3s ease; 
+}
+
+
+
+.nav-link:hover::after {
+  width: 75%; 
 }

@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
-    //
     function index(){
         $user = User::find(1);
 
@@ -65,21 +64,13 @@ class ProfileController extends Controller
     }
 public function destroy($id)
 {
-    // Find the order by its ID
+    
     $order = Order::findOrFail($id);
-
-    // Retrieve all order items associated with the order
     $orderItems = OrderItem::where('order_id', $order->id)->get();
-
-    // Delete each order item
     foreach ($orderItems as $orderItem) {
         $orderItem->delete();
     }
-
-    // Once all order items are deleted, delete the order itself
     $order->delete();
-
-    // Return a response indicating success
     return response()->json(['message' => 'Order deleted successfully']);
 }
 }

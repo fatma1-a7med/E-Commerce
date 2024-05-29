@@ -1,7 +1,10 @@
 .profile{
     margin-top: 140px;
-   
+    color: #072643;
     box-shadow: 3px 4px 8px #1c1d20;
+}
+th,td{
+  color: #072643;
 }
 .profile img{
     margin-top: -120px;
@@ -10,13 +13,10 @@
 .buttons{
     margin-top: -100px;
 }
-.edit_btn{
-    background-color: #1c1d20;
-    color: #dbe0e3 ;
-}
-.order_btn{
+
+.order_btn, .edit_btn{
     background-color: #F1A7A6;
-    color: #dbe0e3;
+    color: white;
 }
 .order_count p:nth-of-type(1){
     margin-top: 70px;
@@ -26,9 +26,10 @@
     font-weight: bold;
 }
 .info{
-    margin: 20rem;
+    margin-left: 20rem;
+    color: #072643;
+    margin-bottom: 4rem;
 }
-
 .edit_form{
     width: 450px;
     margin: auto;
@@ -36,6 +37,7 @@
 
 .my_Orders{
     margin-top: 100px;
+    margin-bottom: 4rem;
 
 }
 .my_Orders .order_item {
@@ -61,7 +63,7 @@
   
   .orders_table th {
     background-color: #f2f2f2;
-    text-align: left;
+    text-align: center;
   }
   
   .orders_table td {
@@ -90,3 +92,11 @@
     font-weight: bold;
   }
   
+  #cancel{
+    background-color: #dc3545;
+  }
+  #plus{
+    font-size: 26px;
+    color: #072643;
+    cursor: pointer;
+  }
