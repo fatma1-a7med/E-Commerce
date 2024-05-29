@@ -10,23 +10,18 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-// View all orders
  // View all orders
  public function index()
- {
-     // Load orders with related user and order items including products
-     $orders = Order::with(['user', 'items.product'])->get();
-     return response()->json($orders);
- }
+    {
+        $orders = Order::with(['user', 'items.product'])->get();
+        return response()->json($orders);
+    }
 
-
-// View a specific order
-public function show(Order $order)
-{
-    $order->load('User', 'items.product');
-    return response()->json($order);
-}
-
+    public function show(Order $order)
+    {
+        $order->load('user', 'items.product');
+        return response()->json($order);
+    }
  // Modify order state
  public function update(Request $request, Order $order)
  {

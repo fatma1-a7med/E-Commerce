@@ -1,52 +1,32 @@
+<div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light container">
+    <div class="container-fluid d-flex justify-content-between">
+      <!-- Brand -->
+      <div class="brand d-flex align-items-center">
+        <img src="../../../assets/images/logo6.svg" width="40" height="40" alt="EShop Logo">
+        <h2 class="ms-2 mb-0"><a class="navbar-brand" routerLink="/">EShop</a></h2>
+      </div>
 
-  </div>
-  <nav class="navbar navbar-expand-lg container d-flex justify-content-between">
-  
-    <div class="container-fluid ">
+      <!-- Toggler/collapsibe Button -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse " id="navbarSupportedContent">
-        <div class="left_header">
-  
+
+      <!-- Navbar links -->
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/order-details">All_Orders</a>
+            <a class="nav-link active" aria-current="page" routerLink="/admin/orders">All Orders</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/products">Products</a>
+            <a class="nav-link" routerLink="/admin/products">Products</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/contact">Contact</a>
-          </li>
-    
         </ul>
-      </div>
-  
-        <div class="brand">
-          <img src="../../../assets/images/logo6.svg" width="40" height="40"> 
-          <h2><a class="navbar-brand"  routerLink="/">EShop</a></h2>
+        <div class="d-flex">
+          <button class="btn btn-outline-danger ms-3">Sign out</button>
         </div>
-        <div class="right_header d-flex">
-      
-            
-              <button class="btn sign_up">Sign up</button>
-              <button class="btn log_in">Log in</button>
-               
-           
-         
-          <i class="bi bi-search"></i>
-  <!-- navbar section in your main template -->
-          <i class="bi bi-cart" routerLink="/cart"></i>
-          <i class="bi bi-person-circle" routerLink="/profile"></i>
-         </div>
       </div>
     </div>
   </nav>
-  
   <router-outlet></router-outlet>
-  
-  
+</div>

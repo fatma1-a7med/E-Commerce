@@ -37,7 +37,6 @@ Route::delete('/profile/orders/{orderId}', [ProfileController::class, 'destroy']
 Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
 Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
 Route::put('/orders/{order}', [OrderController::class, 'update'])->name('orders.update');
-
 /////////////////////////////////
 
 
