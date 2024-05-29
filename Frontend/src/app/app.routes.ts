@@ -6,6 +6,10 @@ import { CartsComponent } from './carts/components/carts/carts.component';
 import { AboutComponent } from './shared/about/about.component';
 import { ContactComponent } from './shared/contact/contact.component';
 import { ProfileComponent } from './shared/profile/profile.component';
+import { ProductsListComponent } from './admin/products/products-list/products-list.component';
+import { AddProductComponent } from './admin/products/add-product/add-product.component';
+import { ProductDetailsComponent } from './admin/products/product-details/product-details.component';
+import { EditProductComponent } from './admin/products/edit-product/edit-product.component';
 
 
 export const routes: Routes = [
@@ -15,6 +19,12 @@ export const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'profile', component: ProfileComponent },
+  {path: 'admin/products', component:ProductsListComponent},
+  {path: 'admin/products/add', component:AddProductComponent},
+  {path: 'admin/products/details/:id', component:ProductDetailsComponent},
+  {path: 'admin/products/edit/:id', component:EditProductComponent},
+
+
  
 ];
 
