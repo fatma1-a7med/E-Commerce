@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit {
   isEditMode = false;
   isOrderMode = false;
   profile: User = {
+    id:0,
     username: '',
     email: '',
     gender: '',

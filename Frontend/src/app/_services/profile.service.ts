@@ -13,8 +13,8 @@ export interface Product {
 }
 
 export interface OrderItem {
-  id: number; // Assuming each item has an ID
-  product_id: number; // Assuming each item has a product ID
+  id: number;
+  product_id: number; 
   quantity: number;
    price: number;
   product: Product;
@@ -30,6 +30,7 @@ export interface Order {
   // Add other properties of Order as needed
 }
 export interface User {
+  id:number;
   username: string;
   email: string;
   gender: string;
