@@ -2,11 +2,11 @@
 
 This platform provides a comprehensive solution for both administrators and users to manage and interact with an online store.
 
-Project Overview:
+*Project Overview*
 Our platform offers the following features for both administrators and users:
 
-For Administrators:
-Authentication:
+*For Administrators*
+*Authentication:*
 
 Admins can log in using their pre-registered email and password.
 Products Management:
@@ -21,8 +21,10 @@ Orders Management:
 
 View the orders page, including pending, accepted, and rejected orders.
 Modify order states as needed.
-For Users:
-Authentication:
+
+
+*For Users*
+*Authentication:*
 
 Users can explore the home and about pages without logging in.
 Registration: Users can create accounts with their email, username, password, image, and gender.
@@ -41,6 +43,6 @@ View and edit user information.
 View order history, including order status (accepted, rejected, pending).
 Cancel pending orders.
 
-Project Structure:
+*Project Structure:*
 Backend: Laravel framework is used to build the backend RESTful API.
 Frontend: Angular framework is used to develop the frontend user interface.
