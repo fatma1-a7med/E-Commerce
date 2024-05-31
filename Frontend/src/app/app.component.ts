@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { SharedComponent } from './shared/shared.component';
-import { AuthService } from './Auth/services/auth.service';
+
 import { NgForm, FormsModule } from '@angular/forms';
 
 

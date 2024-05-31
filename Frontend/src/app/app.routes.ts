@@ -10,7 +10,7 @@ import { ProfileComponent } from './shared/profile/profile.component';
 import { LoginComponent } from './Auth/components/login/login.component';
 import { RegisterComponent } from './Auth/components/register/register.component';
 
-import {LogoutComponent} from './Auth/components/logout/logout.component';
+
 import {RequestResetComponent} from './Auth/components/password/request-reset/request-reset.component';
 import{ResponeResetComponent} from  './Auth/components/password/respone-reset/respone-reset.component'
 
@@ -27,7 +27,7 @@ export const routes: Routes = [
   
   {path:'login' , component:LoginComponent},
   {path:'register' , component:RegisterComponent},
-  {path: 'logout', component: LogoutComponent, },
+
   {path: 'resetpassword', component: RequestResetComponent},
   {path: 'responsepassword', component: ResponeResetComponent, },
   { path: '', component: HomeComponent },
