@@ -37,7 +37,7 @@ Route::group([
 
 // Admin routes
 Route::group(['middleware' => ['api', 'auth:api', 'role:admin']], function () {
-    
+    Route::apiResource('products', ProductController::class);
 });
 
 // User routes
