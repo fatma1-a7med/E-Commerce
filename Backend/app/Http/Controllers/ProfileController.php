@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class ProfileController extends Controller
 {
     function index(){
-        $user = User::find(1);
+        $user = Auth::user();
 
         if ($user) {
             return response()->json($user);
@@ -21,7 +21,7 @@ class ProfileController extends Controller
 
     public function update(Request $request)
     {
-        $user = User::find(1);
+        $user = Auth::user();
         if ($user) {
             $user->update($request->all());
             return response()->json(['message' => 'Profile updated successfully']);
@@ -29,18 +29,7 @@ class ProfileController extends Controller
             return response()->json(['error' => 'User not found'], 404);
         }
     }
-  /*   public function userOrders()
-    {
-       /*  $user = User::with('orders.items')->find(1);
-             
-        if ($user) {
-            return response()->json($user->orders);
-        } else {
-            return response()->json(['error' => 'User not found'], 404);
-        } 
-        $orders = Order::with(['user', 'items.product'])->get();
-        return response()->json($orders);
-    } */
+ 
     public function userOrders($userId)
     {
         $orders = Order::where('user_id', $userId)
