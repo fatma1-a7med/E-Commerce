@@ -90,8 +90,9 @@ class AuthController extends Controller
             ['image' => $imagePath]
         ));
     
-        
-        return response()->json(['message' => 'User registered successfully', 'user' => $user], 201);
+        return $this->login($request);
+    
+       // return response()->json(['message' => 'User registered successfully', 'user' => $user], 201);
     }
     
     

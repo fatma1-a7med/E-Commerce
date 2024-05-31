@@ -1,3 +1,6 @@
+/* @import '~@fortawesome/fontawesome-free/css/all.css';*/
+
+
 .carousel-item {
     height: 100vh;
     min-height: 350px;
@@ -12,6 +15,7 @@
   font-size: 28px;
   margin-left: -15px;
   color:#072643 ;
+  margin-top: 3rem;
 }
 .right_header{
   margin-left: 180px;
@@ -79,4 +83,3 @@
   width: 75%; 
 }
 
-@import '~@fortawesome/fontawesome-free/css/all.css';
