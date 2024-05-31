@@ -2,12 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import { CartsService } from '../../../carts/services/carts.service';
 import { CommonModule } from '@angular/common';
-<<<<<<< HEAD
-import { Router } from '@angular/router'
-=======
+import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms'; // Import FormsModule
 
->>>>>>> 44a40970cc9b9a097624c8ee9a2eceb127165521
 @Component({
   selector: 'app-allproducts',
   templateUrl: './allproducts.component.html',
@@ -18,60 +15,32 @@ import { FormsModule } from '@angular/forms'; // Import FormsModule
 export class AllproductsComponent implements OnInit {
 
   products: any[] = [];
-<<<<<<< HEAD
   error: string = '';
-  constructor( private productsService: ProductsService,  private router: Router){}
-  ngOnInit():void{
-      this.getProducts()
-=======
   searchQuery: string = '';
 
   constructor(
     private productsService: ProductsService,
-    private cartsService: CartsService
-  ) { }
+    private cartsService: CartsService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getProducts();
->>>>>>> 44a40970cc9b9a097624c8ee9a2eceb127165521
   }
 
   getProducts(): void {
-<<<<<<< HEAD
-    this.productsService.getAllProducts().subscribe(
-      (response) => {
+    this.productsService.getAllProducts().subscribe({
+      next: (response: any) => {
         this.products = response;
       },
-      (error) => {
+      error: (error: any) => {
         if (error.status === 401) {
-          //Redirect to login page or display authentication message
+          // Redirect to login page or display authentication message
           this.error = 'Authentication required. Please login.';
-         
         } else {
           // Handle other errors
           this.error = 'Error fetching products: ' + error.message;
         }
-      }
-    );
-
-   
-    }
-    getImageUrl(imageName: string): string {
-      return `http://localhost:8000/images/products/${imageName}`;
-    }
-
-   
-  }
-
-  
-
-=======
-    this.productsService.getAllProducts().subscribe({
-      next: (data: any) => {
-        this.products = data;
-      },
-      error: (err) => {
-        console.error('Error fetching products:', err);
       }
     });
   }
@@ -87,7 +56,7 @@ export class AllproductsComponent implements OnInit {
             this.products = []; // If product not found, show an empty array
           }
         },
-        error: (err) => {
+        error: (err: any) => {
           console.error('Error searching products:', err);
         }
       });
@@ -96,8 +65,6 @@ export class AllproductsComponent implements OnInit {
       this.getProducts();
     }
   }
-  
-  
 
   addToCart(product: any): void {
     this.cartsService.addToCart(product);
@@ -107,4 +74,4 @@ export class AllproductsComponent implements OnInit {
     return `http://localhost:8000/images/products/${imageName}`;
   }
 }
->>>>>>> 44a40970cc9b9a097624c8ee9a2eceb127165521
+
