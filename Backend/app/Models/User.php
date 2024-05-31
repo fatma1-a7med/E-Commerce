@@ -35,7 +35,11 @@ class User extends Authenticatable implements JWTSubject
         'password',
         
     ];
-
+    public function hasRole($role)
+    {
+        return $this->role === $role; // Adjust according to your role implementation
+    }
+    
     /**
      * The attributes that should be cast.
      *

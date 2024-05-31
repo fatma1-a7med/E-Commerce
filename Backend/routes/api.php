@@ -35,7 +35,7 @@ Route::group(['middleware' => ['api', 'auth:api', 'role:admin']], function () {
 });
 
 // User routes
-Route::group(['middleware' => ['api', 'auth:api']], function () {
+Route::group(['middleware' => ['api', 'auth:api', 'role:user']], function () {
     Route::apiResource('products', ProductController::class);
     Route::get('/profile', [ProfileController::class, 'index']);
     Route::put('/profile', [ProfileController::class, 'update']);
@@ -43,3 +43,4 @@ Route::group(['middleware' => ['api', 'auth:api']], function () {
     Route::get('/profile/orders/{userId}', [ProfileController::class, 'userOrders']);
     Route::delete('/profile/orders/{orderId}', [ProfileController::class, 'destroy']);
 });
+ 
