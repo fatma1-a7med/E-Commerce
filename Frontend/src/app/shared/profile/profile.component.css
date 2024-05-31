@@ -1,7 +1,10 @@
 .profile{
     margin-top: 140px;
-   
+    color: #072643;
     box-shadow: 3px 4px 8px #1c1d20;
+}
+th,td{
+  color: #072643;
 }
 .profile img{
     margin-top: -120px;
@@ -10,16 +13,22 @@
 .buttons{
     margin-top: -100px;
 }
-.edit_btn{
-    background-color: #1c1d20;
-    color: #dbe0e3 ;
-}
-.order_btn{
+
+.order_btn, .edit_btn{
     background-color: #F1A7A6;
-    color: #dbe0e3;
+    color: white;
 }
-.order_count{
-    margin-top: 90px;
+.order_count p:nth-of-type(1){
+    margin-top: 70px;
+}
+.order_count p:nth-of-type(2){
+    margin-top: -20px;
+    font-weight: bold;
+}
+.info{
+    margin-left: 20rem;
+    color: #072643;
+    margin-bottom: 4rem;
 }
 .edit_form{
     width: 450px;
@@ -28,9 +37,66 @@
 
 .my_Orders{
     margin-top: 100px;
+    margin-bottom: 4rem;
 
 }
 .my_Orders .order_item {
     width: 70vw;
     margin: auto;
 }
+.orders_table{
+    background-color: transparent !important;
+    width: 60vw;
+    margin: auto;
+}
+
+.orders_table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .orders_table th,
+  .orders_table td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .orders_table th {
+    background-color: #f2f2f2;
+    text-align: center;
+  }
+  
+  .orders_table td {
+    text-align: center;
+  }
+  
+  .order_item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .order_item img {
+    margin-right: 20px;
+  }
+  
+  .order_item_details {
+    flex-grow: 1;
+  }
+  
+  .order_item_details p {
+    margin: 0;
+  }
+  
+  .order_item_details p:first-child {
+    font-weight: bold;
+  }
+  
+  #cancel{
+    background-color: #dc3545;
+  }
+  #plus{
+    font-size: 26px;
+    color: #072643;
+    cursor: pointer;
+  }

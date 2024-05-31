@@ -20,6 +20,8 @@ class User extends Authenticatable implements JWTSubject
     protected $fillable = [
         'username',
         'email',
+        'username',
+        'gender',
         'password',
         'gender',
         'role'
@@ -61,4 +63,14 @@ class User extends Authenticatable implements JWTSubject
          return [];
      }
     
-} 
+
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
+
+    public function orders(){
+        return $this->hasMany(Order::class);
+    }
+
+}

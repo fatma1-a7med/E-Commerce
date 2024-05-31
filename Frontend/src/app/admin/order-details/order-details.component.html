@@ -1,0 +1,36 @@
+<div>
+    <h2>All Orders</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Date</th>
+          <th>Total Price</th>
+          <th>Product Titles</th>
+          <th>OrderState</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders" class="order-item">
+          <td>{{ order.user?.username }}</td>
+          <td>{{ order.created_at }}</td>
+          <td>{{ order.Total_price }}</td>
+          <td>
+            <ul>
+              <li *ngFor="let item of order.items">{{ item.product.title }}</li>
+            </ul>
+          </td>
+          <td>{{ order.State }}</td> <!-- Display previous state here -->
+
+          <td>
+            <select [(ngModel)]="order.state" (change)="updateOrderState(order.id, order.state)">
+              <option value="Pending" [selected]="order.state === 'Pending'">Pending</option>
+              <option value="Accepted" [selected]="order.state === 'Accepted'">Accepted</option>
+              <option value="Rejected" [selected]="order.state === 'Rejected'">Rejected</option>
+            </select>
+                      </td>
+        </tr>
+      </tbody>
+    </table>
+</div>

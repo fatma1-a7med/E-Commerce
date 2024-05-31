@@ -16,16 +16,17 @@ body::-webkit-scrollbar {
   
   body::-webkit-scrollbar-thumb {
     border-radius: 100px;
-    background-image: linear-gradient(180deg, #F1A7A6 0%, #1c1d20 99%);
-    box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+    background-image: linear-gradient(180deg, #072643 0%, #F1A7A6 99%);
+    box-shadow: inset 2px 2px 5px 0 rgba(hsl(0, 0%, 100%), 0.5);
   }
   .btn {
-    background-image: linear-gradient(180deg, #F1A7A6 0%, #1c1d20 99%);
+   /*  background-image: linear-gradient(180deg, #072643 0%, #07b3f7 99%); */
+    background-color: #072643;
     color: #dbe0e3;
     border: none;
     padding: 10px 20px; 
     border-radius: 5px;
-    box-shadow: inset 2px 2px 5px 0 rgba(255, 255, 255, 0.5); 
+    /* box-shadow: inset 2px 2px 5px 0 rgba(255, 255, 255, 0.5);  */
     height: 45px;
 }
 

@@ -13,6 +13,8 @@ class OrderItem extends Model
         'price',
     ];
 
+    protected $table = 'order_items';
+
     public function order()
     {
         return $this->belongsTo(Order::class);
