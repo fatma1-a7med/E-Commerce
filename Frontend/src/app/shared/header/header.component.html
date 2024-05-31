@@ -33,37 +33,21 @@
 
       <div class="right_header d-flex align-items-center">
         <button class="btn sign_up me-2" routerLink="/register">Sign up</button>
-        <button class="btn log_in me-2" routerLink="/login">Log in</button>
+        <button class="btn log_in me-2" routerLink="/login" *ngIf="!loggedIn">Log in</button>
 
         <i class="bi bi-search me-2"></i>
         <i class="bi bi-cart me-2"></i>
         <i class="bi bi-person-circle me-2" routerLink="/profile"></i>
 
-        <div class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          
-          </a>
-
+        <div class="nav-item dropdown" *ngIf="loggedIn">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" routerLink="/dashboard">Dashboard</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" routerLink="/logout">Logout</a>
+            <a class="dropdown-item" href="#" (click)="logout($event)">Logout</a>
           </div>
         </div>
       </div>
-      <div class="right_header d-flex">
-    
-          
-            <button class="btn sign_up">Sign up</button>
-            <button class="btn log_in">Log in</button>
-             
-         
-       
-        <i class="bi bi-search"></i>
-<!-- navbar section in your main template -->
-        <i class="bi bi-cart" routerLink="/cart"></i>
-        <i class="bi bi-person-circle" routerLink="/profile"></i>
-       </div>
     </div>
   </div>
 </nav>

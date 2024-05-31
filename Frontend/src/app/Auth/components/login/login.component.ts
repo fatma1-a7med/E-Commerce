@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule,HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+
 import { NgForm, FormsModule  } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { JarwisService } from '../../../_services/jarwis.service';
+import { TokenService } from '../../../_services/token.service';
+import { asyncScheduler } from 'rxjs';
+import { AuthService } from '../../../_services/auth.service';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -21,32 +25,30 @@ export class LoginComponent implements OnInit {
   
     public error = null;
   
-    constructor(private http:HttpClient,
-      // private Jarwis: JarwisService,
-      // private Token: TokenService,
+    constructor(
+      private Jarwis: JarwisService,
+      private Token: TokenService,
       private router: Router,
-      private Auth: AuthService
+      private Auth : AuthService
     ) { }
   
     onSubmit() {
 
-      return this.http.post('http://localhost:8000/api/login',this.form).subscribe(
-        data => console.log(data),
-        error =>this.handleError(error)
-      )
-      // this.Jarwis.login(this.form).subscribe(
-      //   data => this.handleResponse(data),
-      //   error => this.handleError(error)
-      // );
+     
+      this.Jarwis.login(this.form).subscribe(
+        //data => console.log(data),
+        data => this.handleResponse(data),
+        error => this.handleError(error)
+      );
     }
   
-    // handleResponse(data) {
-    //   this.Token.handle(data.access_token);
-    //   this.Auth.changeAuthStatus(true);
-    //   this.router.navigateByUrl('/profile');
-    // }
+    handleResponse(data:any) {
+      this.Token.handle(data.token);
+      this.Auth.changeAuthStatus(true);
+      this.router.navigateByUrl('/products');
+    }
   
-    handleError(error:any) {
+    handleError(error:HttpErrorResponse) {
       this.error = error.error.error;
     }
     ngOnInit() {

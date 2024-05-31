@@ -3,9 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule ,HttpErrorResponse} from '@angular/common/http';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
 import { NgForm, FormsModule } from '@angular/forms';
-
+import { JarwisService } from '../../../_services/jarwis.service';
+import { TokenService } from '../../../_services/token.service';
+import { AuthService } from '../../../_services/auth.service';
 @Component({
   selector: 'app-register',
   standalone: true,
@@ -26,8 +27,11 @@ export class RegisterComponent implements OnInit {
   public error: any = {}; // Initialize error as an object
 
   constructor(
-    private http: HttpClient,
-    private router: Router
+    private Jarwis: JarwisService,
+    private Token: TokenService,
+    private router: Router,
+    private Auth :AuthService
+
   ) { }
 
   onSubmit() {
@@ -41,17 +45,20 @@ export class RegisterComponent implements OnInit {
       formData.append('image', this.form.image);
     }
 
-    this.http.post('http://localhost:8000/api/register', formData).subscribe(
-      (data: any) => this.handleResponse(data),
-      (error: HttpErrorResponse) => this.handleError(error)
+    this.Jarwis.signup(formData).subscribe(
+     // data => console.log(data),
+      data=> this.handleResponse(data),
+      error=> this.handleError(error)
     );
   }
-
   handleResponse(data: any) {
-    // Assuming data.access_token is returned by your API
-    localStorage.setItem('access_token', data.access_token);
-    this.router.navigateByUrl('/profile');
+    console.log('API Response:', data);
+    console.log('Token:', data.token);
+    this.Token.handle(data.token);
+    this.router.navigateByUrl('/products');
   }
+  
+  
 
   handleError(error: HttpErrorResponse) {
     this.error = error.error.errors;
