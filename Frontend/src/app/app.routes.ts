@@ -6,7 +6,11 @@ import { CartsComponent } from './carts/components/carts/carts.component';
 import { AboutComponent } from './shared/about/about.component';
 import { ContactComponent } from './shared/contact/contact.component';
 import { ProfileComponent } from './shared/profile/profile.component';
-<<<<<<< HEAD
+import { ProductsListComponent } from './admin/products/products-list/products-list.component';
+import { AddProductComponent } from './admin/products/add-product/add-product.component';
+import { ProductDetailsComponent } from './admin/products/product-details/product-details.component';
+import { EditProductComponent } from './admin/products/edit-product/edit-product.component';
+import { OrderDetailsComponent } from './admin/order-details/order-details.component';
 import { LoginComponent } from './Auth/components/login/login.component';
 import { RegisterComponent } from './Auth/components/register/register.component';
 
@@ -14,13 +18,6 @@ import {LogoutComponent} from './Auth/components/logout/logout.component';
 import {RequestResetComponent} from './Auth/components/password/request-reset/request-reset.component';
 import{ResponeResetComponent} from  './Auth/components/password/respone-reset/respone-reset.component'
 import {DashboardComponent} from './Auth/components/dashboard/dashboard.component'
-=======
-import { ProductsListComponent } from './admin/products/products-list/products-list.component';
-import { AddProductComponent } from './admin/products/add-product/add-product.component';
-import { ProductDetailsComponent } from './admin/products/product-details/product-details.component';
-import { EditProductComponent } from './admin/products/edit-product/edit-product.component';
-import { OrderDetailsComponent } from './admin/order-details/order-details.component';
->>>>>>> 44a40970cc9b9a097624c8ee9a2eceb127165521
 
 import { authGuard } from './auth.guard';
 export const routes: Routes = [
@@ -31,7 +28,6 @@ export const routes: Routes = [
   {path: 'resetpassword', component: RequestResetComponent, canActivate:[authGuard]},
   {path: 'responsepassword', component: ResponeResetComponent, canActivate:[authGuard]},
   { path: '', component: HomeComponent },
-<<<<<<< HEAD
   { path: 'products', component: AllproductsComponent ,canActivate:[authGuard]},
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
@@ -39,9 +35,9 @@ export const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent, canActivate:[authGuard]
 
   },
+
   
  
-=======
   { path: 'products', component: AllproductsComponent },
   { path: 'cart', component: CartsComponent }, 
   { path: 'about', component: AboutComponent },
@@ -52,7 +48,7 @@ export const routes: Routes = [
   { path: 'admin/products/add', component: AddProductComponent },
   { path: 'admin/products/details/:id', component: ProductDetailsComponent },
   { path: 'admin/products/edit/:id', component: EditProductComponent },
->>>>>>> 44a40970cc9b9a097624c8ee9a2eceb127165521
+
 ];
 
 @NgModule({

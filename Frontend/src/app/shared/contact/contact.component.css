@@ -1,0 +1,21 @@
+.about-section {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    color: #072643;
+}
+
+
+.about-section p {
+    margin-bottom: 20px;
+}
+
+.about-section ul li {
+    margin-bottom: 10px;
+}
+
+.about-section ul li i {
+    color: #F1A7A6; 
+    margin-right:  1rem;
+}
