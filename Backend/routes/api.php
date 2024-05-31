@@ -1,9 +1,11 @@
 <?php
-
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PromotionController;
+use Illuminate\Support\Facades\Route;
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,11 +17,29 @@ use App\Http\Controllers\PromotionController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Auth routes
+Route::group([
+    'middleware' => 'api',
+  
+], function () {
+    Route::post('login', [AuthController::class, 'login']);
+    Route::post('register', [AuthController::class, 'register']);
+    Route::post('logout', [AuthController::class, 'logout']);
+    Route::post('refresh', [AuthController::class, 'refresh']);
+    Route::post('me', [AuthController::class, 'me']);
 });
 
-Route::get('products/search/{name}', [ProductController::class, 'search']);
-Route::get('products-with-promotions', [PromotionController::class, 'index']);
-Route::apiResource('products', ProductController::class);
+// Admin routes
+Route::group(['middleware' => ['api', 'auth:api', 'role:admin']], function () {
+    
+});
 
+// User routes
+Route::group(['middleware' => ['api', 'auth:api']], function () {
+    Route::apiResource('products', ProductController::class);
+    Route::get('/profile', [ProfileController::class, 'index']);
+    Route::put('/profile', [ProfileController::class, 'update']);
+    Route::get('products-with-promotions', [PromotionController::class, 'index']);
+    Route::get('/profile/orders/{userId}', [ProfileController::class, 'userOrders']);
+    Route::delete('/profile/orders/{orderId}', [ProfileController::class, 'destroy']);
+});

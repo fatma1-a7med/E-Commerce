@@ -30,3 +30,5 @@
 .brand{
   margin-left: 270px;
 }
+
+@import '~@fortawesome/fontawesome-free/css/all.css';

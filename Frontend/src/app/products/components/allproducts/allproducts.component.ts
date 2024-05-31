@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router'
 @Component({
   selector: 'app-allproducts',
   standalone: true,
@@ -10,27 +11,37 @@ import { CommonModule } from '@angular/common';
 })
 export class AllproductsComponent implements OnInit {
 
-  products: any[] = []
-  constructor( private productsService: ProductsService){}
+  products: any[] = [];
+  error: string = '';
+  constructor( private productsService: ProductsService,  private router: Router){}
   ngOnInit():void{
       this.getProducts()
   }
   getProducts(): void {
-    this.productsService.getAllProducts().subscribe({
-      next: (data: any) => {
-        this.products = data;
-        console.log(this.products); 
+    this.productsService.getAllProducts().subscribe(
+      (response) => {
+        this.products = response;
       },
-      error: (err) => {
-        console.error('Error fetching products:', err); 
+      (error) => {
+        if (error.status === 401) {
+          //Redirect to login page or display authentication message
+          this.error = 'Authentication required. Please login.';
+         
+        } else {
+          // Handle other errors
+          this.error = 'Error fetching products: ' + error.message;
+        }
       }
-    });
+    );
+
+   
+    }
+    getImageUrl(imageName: string): string {
+      return `http://localhost:8000/images/products/${imageName}`;
+    }
 
    
   }
-  getImageUrl(imageName: string): string {
-    return `http://localhost:8000/images/${imageName}`;
-  }
-  }
 
+  
 

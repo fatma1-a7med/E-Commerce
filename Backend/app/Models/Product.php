@@ -12,9 +12,8 @@ class Product extends Model
     
 
     
-        protected $fillable = ['title', 'image', 'price', 'details','promotion_id'];
-    
-
+        protected $fillable = ['title', 'price', 'details','promotion_id' ,'image'];
+      
   
   
      public function promotions()
