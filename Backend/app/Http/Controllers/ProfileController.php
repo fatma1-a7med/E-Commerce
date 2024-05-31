@@ -6,11 +6,19 @@ use App\Models\OrderItem;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class ProfileController extends Controller
 {
-    function index(){
-        $user = Auth::user();
+    public function __construct()
+    {
+        $this->middleware('auth:api', ['except' => ['login', 'register']]);
+    }
+    function index(Request $request){
+        $user = JWTAuth::parseToken()->authenticate();
+            
+        // Get the user ID from the token
+       
 
         if ($user) {
             return response()->json($user);

@@ -10,12 +10,17 @@
     -o-background-size: cover;
     background-size: cover;
   }
+  .nav_logo{
+    padding-top: 80px;
+    margin-left: -30px;
+  }
 .navbar-brand{
   font-family: "Edu TAS Beginner", cursive;
   font-size: 28px;
-  margin-left: -15px;
+  margin-left: -30px;
   color:#072643 ;
-  margin-top: 3rem;
+  padding-top: 16rem;
+
 }
 .right_header{
   margin-left: 180px;

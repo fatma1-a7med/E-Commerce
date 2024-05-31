@@ -42,7 +42,14 @@ export class TokenService {
     }
     return false;
   }
-
+getUserIdFromToken(): number | null {
+    const token = this.get();
+    if (token) {
+      const payload = this.payload(token);
+      return payload ? payload.id : null;
+    }
+    return null;
+  }
   payload(token:any) {
     const payload= token.split('.')[1];
     return this.decode(payload);

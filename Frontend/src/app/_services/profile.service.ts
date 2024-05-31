@@ -33,6 +33,8 @@ export interface User {
   username: string;
   email: string;
   gender: string;
+  image:string;
+
   // Add other properties of User as needed
 }
 
@@ -45,21 +47,25 @@ export class ProfileService {
    
   constructor(private http: HttpClient) { }
     
-  getUsers(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/profile`);
+  getUserProfile(token: string): Observable<User> {
+    const headers = { Authorization: `Bearer ${token}` }; // Set authorization header
+    return this.http.get<User>(`${this.apiUrl}/profile`, { headers });
   }
 
-  updateProfile( data: any): Observable<any> {
-    return this.http.put(`${this.apiUrl}/profile`, data);
+  updateProfile(data: any, token: string): Observable<any> {
+    const headers = { Authorization: `Bearer ${token}` }; // Set authorization header
+    return this.http.put(`${this.apiUrl}/profile`, data, { headers });
   }
  
   /* getOrders(): Observable<any> {
     return this.http.get(`${this.apiUrl}/profile/orders`);
   } */
-  getOrders(userId: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/profile/orders/${userId}`);
+  getOrders(userId: number, token: string): Observable<any> {
+    const headers = { Authorization: `Bearer ${token}` }; // Set authorization header
+    return this.http.get(`${this.apiUrl}/profile/orders/${userId}`, { headers });
   }
-  cancelOrder(orderId: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/profile/orders/${orderId}`);
+  cancelOrder(orderId: number, token: string): Observable<any> {
+    const headers = { Authorization: `Bearer ${token}` }; // Set authorization header
+    return this.http.delete(`${this.apiUrl}/profile/orders/${orderId}`, { headers });
   }
 }

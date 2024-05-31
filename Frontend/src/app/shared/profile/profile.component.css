@@ -82,6 +82,7 @@ th,td{
   
   .order_item_details {
     flex-grow: 1;
+    margin-left: -300px;
   }
   
   .order_item_details p {
