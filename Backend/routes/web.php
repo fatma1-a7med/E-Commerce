@@ -17,11 +17,11 @@ Route::get('/', function () {
     return ['Laravel' => app()->version()];
 });
 
-<<<<<<< HEAD
+
 require __DIR__.'/auth.php';
 =======
 /* Auth::routes(); */
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
->>>>>>> 44a40970cc9b9a097624c8ee9a2eceb127165521
+
